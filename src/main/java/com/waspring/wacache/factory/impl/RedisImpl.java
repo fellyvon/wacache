@@ -158,6 +158,7 @@ public class RedisImpl extends CacheImpl implements Jediser {
 			String ip = CacheConfig.getConfigValue("redis.config.ip");
 			int port = CacheConfig.getConfigIntValue("redis.config.port");
 			pool = new JedisPool(initConfig(), ip, port);
+			 
 		}
 
 	}
@@ -185,7 +186,7 @@ public class RedisImpl extends CacheImpl implements Jediser {
 
 		// MBean ObjectName = new
 		// ObjectName("org.apache.commons.pool2:type=GenericObjectPool,name=" +
-		// "pool" + i); 默 认为"pool", JMX不熟
+		// "pool" + i); 默 认为"pool" 
 
 		String jmxNamePrefix = CacheConfig.getConfigValue(
 				"redis.config.jmxNamePrefix", "pool");
@@ -205,7 +206,7 @@ public class RedisImpl extends CacheImpl implements Jediser {
 
 		// 最大连接数, 默认16个
 		int maxTotal = Integer.parseInt(CacheConfig.getConfigValue(
-				"redis.config.maxIdle", "16"));
+				"redis.config.maxTotal", "16"));
 		config.setMaxTotal(maxTotal);
 
 		// 获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted),如果超时就抛异常, 小于零:阻塞不确定的时间,
